@@ -4,43 +4,81 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clases en JavaScript</title>
+  <link rel="stylesheet" href="style.css">
   <script src="clases.js"></script>
 </head>
 <body>
-  <h2>Resultados</h2>
-  <div id="output"></div>
+  <h1>Demostración de Clases en JavaScript</h1>
+
+  <div class="container">
+    <div>
+      <button onclick="mostrarVehiculo()">Mostrar Vehículo</button>
+      <button onclick="mostrarPersona()">Mostrar Persona</button>
+      <button onclick="mostrarAvion()">Mostrar Avión</button>
+      <button onclick="mostrarCliente()">Mostrar Cliente</button>
+      <button onclick="mostrarProveedor()">Mostrar Proveedor</button>
+      <button onclick="mostrarEstudiante()">Mostrar Estudiante</button>
+    </div>
+
+    <div id="output"></div>
+  </div>
 
   <script>
     const salida = document.getElementById("output");
 
-    // Crear instancias
-    const vehiculo1 = new Vehiculo("Ford", "Raptor", 2020);
-    const persona1 = new Persona("Nery", "Valdizon", 2006);
-    const avion1 = new Avion("Guate Fly", "Negro", "Privado");
-    const cliente1 = new Cliente("Jose", "Raymundo", "55555555");
-    const proveedor1 = new Proveedor("Juan", "Perez", "juanp@gmail.com");
-    const estudiante1 = new Estudiante("Daniel", "Castro", "Activo");
+    function mostrarVehiculo() {
+      const v = new Vehiculo("Ford", "Raptor", 2020);
+      salida.innerHTML = `
+        <div class='resultado'>
+          <p>${v.arrancar()}</p>
+          <p>${v.detener()}</p>
+          <p>${v.calcularEdad()}</p>
+        </div>`;
+    }
 
-    // Mostrar resultados
-    salida.innerHTML = `
-      <p>${vehiculo1.arrancar()}</p>
-      <p>${vehiculo1.detener()}</p>
-      <p>${vehiculo1.calcularEdad()}</p>
-      <hr>
-      <p>${persona1.caminar()}</p>
-      <p>${persona1.edad()}</p>
-      <hr>
-      <p>${avion1.mostrarMarca()}</p>
-      <p>${avion1.mostrarColor()}</p>
-      <hr>
-      <p>${cliente1.mostrarNombre()}</p>
-      <p>${cliente1.mostrarTelefono()}</p>
-      <hr>
-      <p>${proveedor1.mostrarNombre()}</p>
-      <p>${proveedor1.mostrarApellido()}</p>
-      <hr>
-      <p>${estudiante1.presentarse()}</p>
-    `;
+    function mostrarPersona() {
+      const p = new Persona("Nery", "Valdizon", 2006);
+      salida.innerHTML = `
+        <div class='resultado'>
+          <p>${p.caminar()}</p>
+          <p>${p.edad()}</p>
+        </div>`;
+    }
+
+    function mostrarAvion() {
+      const a = new Avion("Guate Fly", "Negro", "Privado");
+      salida.innerHTML = `
+        <div class='resultado'>
+          <p>${a.mostrarMarca()}</p>
+          <p>${a.mostrarColor()}</p>
+        </div>`;
+    }
+
+    function mostrarCliente() {
+      const c = new Cliente("Jose", "Raymundo", "55555555");
+      salida.innerHTML = `
+        <div class='resultado'>
+          <p>${c.mostrarNombre()}</p>
+          <p>${c.mostrarTelefono()}</p>
+        </div>`;
+    }
+
+    function mostrarProveedor() {
+      const p = new Proveedor("Juan", "Perez", "juanp@gmail.com");
+      salida.innerHTML = `
+        <div class='resultado'>
+          <p>${p.mostrarNombre()}</p>
+          <p>${p.mostrarApellido()}</p>
+        </div>`;
+    }
+
+    function mostrarEstudiante() {
+      const e = new Estudiante("Daniel", "Castro", "Activo");
+      salida.innerHTML = `
+        <div class='resultado'>
+          <p>${e.presentarse()}</p>
+        </div>`;
+    }
   </script>
 </body>
 </html>
